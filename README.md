@@ -1,4 +1,4 @@
-# MarioHTML5Hacked
+# Mario HTML5 Updated/Hacked:
 A Mario HTML 5 Hacked Client.
 
 To use just run the "Mario_Hacked_Client.html" file.
@@ -14,6 +14,7 @@ Right - Right Arrow
 
 Crough - Down Arrow
 
+# More:
 I take almost no credit for this as the original project was not mine.
 
 Enjoy.
