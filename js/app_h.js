@@ -1,4 +1,4 @@
-Current_Client_Running_Ver = "2.5.3"
+var Current_Client_Running_Ver = "2.5.3"
 
 function setlives() {
     if(NotGame == false) {
@@ -37,5 +37,23 @@ Mario.GodMode = function() {
     if(NotGame == false) {
         Mario.MarioCharacter.InvulnerableTime = 999999
         setTimeout(function(){ Mario.GodMode(); }, 500);
+    }
+}
+function ApplySettings() {
+    brightness = document.getElementById("briRange").value;
+    if(brightness <= 5) {
+        document.body.style.backgroundColor = "rgb(20, 20, 20)"
+    }if(brightness > 5 && brightness < 10) {
+        document.body.style.backgroundColor = "rgb(30, 30, 30)"
+    }if(brightness > 10 && brightness < 20) {
+        document.body.style.backgroundColor = "rgb(40, 40, 40)"
+    }if(brightness > 20 && brightness < 30) {
+        document.body.style.backgroundColor = "rgb(50, 50, 50)"
+    }if(brightness > 30 && brightness < 40) {
+        document.body.style.backgroundColor = "rgb(60, 60, 60)"
+    }if(brightness > 40 && brightness < 50) {
+        document.body.style.backgroundColor = "rgb(70, 70, 70)"
+    }if(brightness == 50) {
+        document.body.style.backgroundColor = "rgb(80, 80, 80)"
     }
 }

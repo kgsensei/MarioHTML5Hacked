@@ -11,14 +11,12 @@ function updateOfflineStatus() {
 function RunMarioScripts() {
     if(online == true) {
         if(ver_current != Current_Client_Running_Ver) {
-            if(ver_mustUpdate == true) {
-                alert("You must update your Mario to play.")
-                window.location.href = "US_RequiredUpdate.html";
-            }else {
-                alert("A new version of Mario is avaliable.")
-            }
+            alert("A new version of Mario is avaliable.")
+        }if(ver_mustUpdate.indexOf(Current_Client_Running_Ver) > -1) {
+            alert("A new version of Mario is required to play.")
+            window.location.href = "US_RequiredUpdate.html";
         }
-    } else {
+    }if(online == false) {
         alert("You are not online so some things might not work...")
     }
 }
