@@ -19,7 +19,7 @@ Mario.WinState.prototype.Enter = function() {
     this.camera = new Enjine.Camera();
     
     this.font = Mario.SpriteCuts.CreateBlackFont();
-    this.font.Strings[0] = { String: "Thank you for saving me, Mario!", X: 36, Y: 160 };
+    this.font.Strings[0] = {String: "Thank you for saving me, Mario!", X: 36, Y: 160};
     
     this.kissing = new Enjine.AnimatedSprite();
     this.kissing.Image = Enjine.Resources.Images["endScene"];
