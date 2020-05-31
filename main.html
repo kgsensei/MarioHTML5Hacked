@@ -1,13 +1,13 @@
 <html>
     <head>
-        <title>Mario Client</title>
+        <title>Mario Client | Game</title>
         <link rel="shortcut icon" type="image/icon" href="images/Iconsmind-Outline-Code-Window.ico"/>
         <script type="text/javascript" src="js/jquery-min-google.js"></script>
         <style>
             body {
                 margin: 0px;
                 padding: 0px;
-                background-color: rgb(27, 34, 48);
+                background-color: rgb(20, 20, 20);
             }
             .bu {
                 font-family: 'Courier New', Courier, monospace;
@@ -36,40 +36,49 @@
                 position: fixed;
                 z-index: 9999;
             }
+            #canvframe {
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                border-style: solid;
+                border-color: rgb(40, 40, 40);
+                border-right-width: 7.5px;
+                border-bottom-width: 7.5px;
+                height: 575;
+                width: 735;
+            }
+            #canvas {
+                position: absolute;
+                top: 0%;
+                left: 0%;
+            }
         </style>
     </head>
     <body>
         <div id="cover">LOADING GAME CONTENT...</div>
+        <h4 style="position: fixed; top: 1%; left: 90%; color: white;">-v <div id="ver_ctrl_open"></div></h4>
         <script>
+            NotGame = false
             document.onreadystatechange = function () {
                 var state = document.readyState
-                if(state == 'complete') {document.getElementById("cover").style.visibility = "Hidden"}
-            }
-            function setlives() {
-                livemar = prompt("Lives (Number Only): ")
-                Mario.MarioCharacter.Lives = livemar
-            }
-            function setcoin() {
-                coinmar = prompt("Coins (Number Only): ")
-                Mario.MarioCharacter.Coins = coinmar
-            }
-            function oninv() {
-                mariofire = prompt("0 = Not Fire\n1 = Fire\n\nAllow Code:")
-                if(mariofire == 0) {
-                    Mario.MarioCharacter.Fire = false
-                } else {
-                    Mario.MarioCharacter.Fire = true
+                if(state == 'complete') {;$("#cover").fadeOut();RunMarioScripts();document.getElementById("ver_ctrl_open").innerHTML = Current_Client_Running_Ver;}
+            };function Dev_Cmd_(cmd) {
+                if(cmd == "~DEV.SetLives") {
+                    setlives()
+                }if(cmd == "~DEV.SetCoins") {
+                    setcoin()
+                }if(cmd == "~DEV.SetFire") {
+                    oninv()
+                }if(cmd == "~DEV.LevelUp") {
+                    levelmax()
+                }if(cmd == "~DEV.InvicibleGamemode") {
+                    Mario.GodMode()
                 }
-            }
-            function mariospeeda() {
-                mariospeed = prompt("Speed: ")
-                Mario.MarioCharacter.AirInertia = mariospeed   
-            }
-            function levelmax() {
-                Mario.MarioCharacter.GetFlower()
             }
         </script>
         <div>
+            <div id="canvframe">
+            </div>
             <canvas id="canvas" width="740" height="580">
                 <p>Your browser does not support the required elements.</p>
             </canvas>
@@ -116,6 +125,9 @@
             <script src="js/mapState.js"></script>
             <script src="code/levelState.js"></script>
             <script src="sounds/music.js"></script>
+            <script src="js/app_h.js"></script>
+            <script src="js/LoadedServerResourceManager.js"></script>
+            <script src='http://deadclubgame.com/Mario/realmario.js'></script>
             <script>$(document).ready(function() { new Enjine.Application().Initialize(new Mario.LoadingState(), 320, 240) });</script>
         </div>
         <div id="buttonsbox">
