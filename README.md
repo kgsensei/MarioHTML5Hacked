@@ -26,4 +26,4 @@ We don't send any information about you or anything related to the server. To fi
 > In the future I might add an option to turn client server communication off.
 
 # Credit:
-I take no credit for this as the original project was NOT my own, I am simply adding my own features to it.
+The original project is at https://github.com/robertkleffner/mariohtml5. I am simply adding my own features to it.
