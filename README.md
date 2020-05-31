@@ -14,7 +14,7 @@ Left - Left Arrow
 
 Right - Right Arrow
 
-Crough - Down Arrow
+Crouch - Down Arrow
 
 ????? - H
 
