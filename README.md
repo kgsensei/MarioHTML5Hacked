@@ -16,7 +16,7 @@ Right - Right Arrow
 
 Crouch - Down Arrow
 
-Hacks - H   **Will Be Removed In 2.6**
+Hacks - H | **Will Be Removed In 2.6**
 
 # Client/Server Communication
 Currently the client will talk to the server about version control. *This is a project with a lot of errors that requires updates a lot* The server will send information about the version to the client and the client will decide to update or not.
