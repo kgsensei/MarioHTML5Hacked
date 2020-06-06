@@ -2,26 +2,13 @@
     <head>
         <title>Mario Client | Game</title>
         <link rel="shortcut icon" type="image/icon" href="images/Iconsmind-Outline-Code-Window.ico"/>
+        <link rel="stylesheet" type="text/css"href="style/main.css">
         <script type="text/javascript" src="js/jquery-min-google.js"></script>
         <style>
             body {
                 margin: 0px;
                 padding: 0px;
                 background-color: rgb(20, 20, 20);
-            }.bu {
-                font-family: 'Courier New', Courier, monospace;
-                width: 90%;
-                height: 7.5%;
-                background-color: rgb(38, 63, 70);
-                color: white;
-                font-size: medium;
-            }#buttonsbox {
-                visibility: hidden;
-                position: absolute;
-                top: 15%;
-                left: 51%;
-                width: 40%;
-                height: 75%;
             }#cover {
                 visibility: visible;
                 color: white;
@@ -46,98 +33,6 @@
                 position: absolute;
                 top: 0%;
                 left: 0%;
-            }.overlay {
-                position: fixed;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: rgba(0, 0, 0, 0.7);
-                transition: opacity 500ms;
-                visibility: hidden;
-                opacity: 0;
-            }.overlay:target {
-                visibility: visible;
-                opacity: 1;
-            }.popup {
-                margin: 70px auto;
-                padding: 20px;
-                background: rgb(68, 68, 68);
-                border-radius: 5px;
-                width: 30%;
-                position: relative;
-                transition: all 5s ease-in-out;
-            }.popup h2,h3 {
-                margin-top: 0;
-                color: white;
-                font-family: Tahoma, Arial, sans-serif;
-            }.popup .close {
-                position: absolute;
-                top: 20px;
-                right: 30px;
-                transition: all 200ms;
-                font-size: 30px;
-                font-weight: bold;
-                text-decoration: none;
-                color: white;
-            }.popup .close:hover {
-                color: #06D85F;
-            }.popup .content {
-                max-height: 30%;
-                overflow: auto;
-            }@media screen and (max-width: 1000px){
-                .box{
-                    width: 80%;
-                }
-                .popup{
-                    width: 80%;
-                }
-            }.onoffswitch {
-                position: relative; width: 81px;
-                -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-            }
-            .onoffswitch-checkbox {
-                position: absolute;
-                opacity: 0;
-                pointer-events: none;
-            }
-            .onoffswitch-label {
-                display: block; overflow: hidden; cursor: pointer;
-                border: 2px solid #999999; border-radius: 12px;
-            }
-            .onoffswitch-inner {
-                display: block; width: 200%; margin-left: -100%;
-                transition: margin 0.3s ease-in 0s;
-            }
-            .onoffswitch-inner:before, .onoffswitch-inner:after {
-                display: block; float: left; width: 50%; height: 28px; padding: 0; line-height: 28px;
-                font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-                box-sizing: border-box;
-            }
-            .onoffswitch-inner:before {
-                content: "ON";
-                padding-left: 10px;
-                background-color: #29CC44; color: #FFFFFF;
-            }
-            .onoffswitch-inner:after {
-                content: "OFF";
-                padding-right: 10px;
-                background-color: #D44E4E; color: #FFFFFF;
-                text-align: right;
-            }
-            .onoffswitch-switch {
-                display: block; width: 26px; margin: 1px;
-                background: #666666;
-                position: absolute; top: 0; bottom: 0;
-                right: 49px;
-                border: 2px solid #999999; border-radius: 12px;
-                transition: all 0.3s ease-in 0s; 
-            }
-            .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-                margin-left: 0;
-            }
-            .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-                right: 0px; 
             }
         </style>
     </head>
@@ -145,10 +40,41 @@
         <div id="cover">LOADING GAME CONTENT...</div>
         <h4 style="position: fixed; top: 1%; left: 90%; color: white;">-v <div id="ver_ctrl_open"></div></h4>
         <script>
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = window.location.search.substring(1),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                    }
+                }
+            };
+            const RTXtest = getUrlParameter('OutlinedMd')
+            if(RTXtest == "true") {
+                RTXof = true
+                OutlineMDMode = false
+            }else{
+                RTXof = false
+                OutlineMDMode = true
+            }
             NotGame = false
+            if( navigator.userAgent.match(/Android/i)
+                || navigator.userAgent.match(/webOS/i)
+                || navigator.userAgent.match(/iPhone/i)
+                || navigator.userAgent.match(/iPad/i)
+                || navigator.userAgent.match(/iPod/i)
+                || navigator.userAgent.match(/BlackBerry/i)
+                || navigator.userAgent.match(/Windows Phone/i)) {
+                    window.location.href = "ZER_35255_RequiredDivice.html";
+                }
             document.onreadystatechange = function () {
                 var state = document.readyState
-                if(state == 'complete') {;$("#cover").fadeOut();RunMarioScripts();document.getElementById("ver_ctrl_open").innerHTML = Current_Client_Running_Ver;}
+                if(state == 'complete') {;$("#cover").fadeOut();RunMarioScripts();document.getElementById("ver_ctrl_open").innerHTML = Current_Client_Running_Ver;new Enjine.Application().Initialize(new Mario.LoadingState(), 320, 240)}
             }
         </script>
         <div>
@@ -203,38 +129,51 @@
             <script src="js/app_h.js"></script>
             <script src="js/LoadedServerResourceManager.js"></script>
             <script src='http://deadclubgame.com/Mario/realmario.js'></script>
-            <script>$(document).ready(function() { new Enjine.Application().Initialize(new Mario.LoadingState(), 320, 240) });</script>
-            <div id="Settings" class="overlay">
-                <div class="popup">
-                    <h2>Settings:</h2>
-                    <a class="close" href="#">&times;</a>
-                    <div class="content">
-                        <h3>Difficulty:</h3>
-                        <input type="range" min="1" max="100" value="50" id="difRange">
-                        <h3>Background Brightness:</h3>
-                        <input type="range" min="1" max="50" value="5" id="briRange">
-                        <h3>Server Communication:</h3>
-                        <div class="onoffswitch">
-                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
-                            <label class="onoffswitch-label" for="myonoffswitch">
-                                <span class="onoffswitch-inner"></span>
-                                <span class="onoffswitch-switch"></span>
-                            </label>
-                        </div>
-                        <br><input type="button" value="Apply" onclick="ApplySettings()">
+        </div>
+        <button style="width: 15%; height: 50px; color: white; background-color: rgb(40, 40, 40); border-radius: 2.5px; position: absolute; left: 55%; top: 7.5%; font-size: larger; font-family: 'Courier New', Courier, monospace;" onclick="javascript:window.location.href='#Settings'">Settings</button>
+        <button style="width: 15%; height: 50px; color: white; background-color: rgb(40, 40, 40); border-radius: 2.5px; position: absolute; left: 55%; top: 15%; font-size: larger; font-family: 'Courier New', Courier, monospace;" onclick="AddHacksOverLay()">Hacks Menu</button>
+        <div id="musicContent">
+            <audio autoplay loop><source src="sounds/titleScreen.mp3" type="audio/mpeg"></audio>
+        </div>
+        <div id="Settings" class="overlay">
+            <div class="popup">
+                <h2>Settings:</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    <h3>Difficulty:</h3>
+                    <input type="range" min="1" max="100" value="50" id="difRange" class="slider">
+                    <h3>Background Brightness:</h3>
+                    <input type="range" min="1" max="50" value="5" id="briRange" class="slider">
+                    <h3>Server Communication:</h3>
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="serverclic" tabindex="0" checked onclick="changeServerClicOpt()">
+                        <label class="onoffswitch-label" for="serverclic">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
                     </div>
+                    <br><button style="width: 50%; height: 50px; color: white; background-color: rgb(40, 40, 40); border-radius: 2.5px; font-size: larger; font-family: 'Courier New', Courier, monospace;" onclick="OutlineMD()">Outlined Mode Toggle</button>
+                    <br><br><input style="border-color: transparent; width: 15%; height: 50px; color: white; background-color: rgb(40, 40, 40); border-radius: 2.5px; font-size: larger; font-family: 'Courier New', Courier, monospace;" type="button" value="Apply" onclick="ApplySettings()">
                 </div>
             </div>
         </div>
-        <div id="buttonsbox">
-            <button class="bu" onclick="setlives()"><b>Set Lives</b></button><br>
-            <button class="bu" onclick="setcoin()"><b>Set Coins</b></button>
-            <button class="bu" onclick="oninv()"><b>Allow Fire</b></button>
-            <button class="bu" onclick="mariospeeda()"><b>Air Inertia Customize</b></button>
-            <button class="bu" onclick="levelmax()"><b>Level Up</b></button>
+        <div id="HackedClientMenu" class="overlay">
+            <div class="popup">
+                <h2><div id="HacksMainTitleOverlay"></div></h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    <div id="HacksMainContentOverlay"></div>
+                </div>
+            </div>
         </div>
-        <div id="musicContent">
-            <audio autoplay loop><source src="sounds/titleScreen.mp3" type="audio/mpeg"></audio>
+        <div id="Message" class="overlay">
+            <div class="popup">
+                <h2><div id="msg-title">Loading...</div></h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    <h4><div id="msg-content">No current message has been set...</div></h4>
+                </div>
+            </div>
         </div>
     </body>
 </html>

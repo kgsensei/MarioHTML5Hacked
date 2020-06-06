@@ -308,15 +308,6 @@ Mario.Character.prototype.Move = function() {
             this.Carried = null;
         }
     }
-
-    if (Enjine.KeyboardInput.IsKeyDown(Enjine.Keys.H)) {
-        document.getElementById("buttonsbox").style.visibility = "Visible";
-    }
-
-    if (Enjine.KeyboardInput.IsKeyDown(Enjine.Keys.O)) {
-        cmd = prompt(">>> ")
-        Dev_Cmd_(cmd)
-    }
 };
 
 Mario.Character.prototype.CalcPic = function() {

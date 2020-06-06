@@ -1,7 +1,7 @@
 # Mario HTML5 Updated/Hacked:
 A Mario HTML 5 "Hacked" Client.
 
-To be fair its really just a copy of the original [https://github.com/robertkleffner/mariohtml5] that is being updated now. Updates include better hacks, texture changes, better interface, Client/Server communication, *More in the "Client/Server Communication" area*, and a ton more. Remember; When a new release comes out the older versions will not function correctly or will require an update to continue.
+To be fair its really just a copy of the original [https://github.com/robertkleffner/mariohtml5] that is being updated now.
 
 To use just run the "main.html" file.
 
@@ -16,7 +16,7 @@ Right - Right Arrow
 
 Crouch - Down Arrow
 
-Hacks - H | **Will Be Removed In 2.6**
+????? - H
 
 # Client/Server Communication
 Currently the client will talk to the server about version control. *This is a project with a lot of errors that requires updates a lot* The server will send information about the version to the client and the client will decide to update or not.
@@ -26,4 +26,4 @@ We don't send any information about you or anything related to the server. To fi
 > In the future I might add an option to turn client server communication off.
 
 # Credit:
-The original project is at [https://github.com/robertkleffner/mariohtml5]. I am simply adding my own features to it.
+I take no credit for this as the original project was NOT my own, I am simply adding my own features to it.

@@ -35,22 +35,39 @@ Mario.LoadingState.prototype.Enter = function() {
     this.Images[12].name = "smallMario";
     this.Images[13].name = "title";
     this.Images[14].name = "worldMap";
-
-    this.Images[0].src = "images/bgsheet.png";
-    this.Images[1].src = "images/endscene.gif";
-    this.Images[2].src = "images/enemysheet.png";
-    this.Images[3].src = "images/firemariosheet.png";
-    this.Images[4].src = "images/font.gif";
-    this.Images[5].src = "images/gameovergost.gif";
-    this.Images[6].src = "images/itemsheet.png";
-    this.Images[7].src = "images/logo.gif";
-    this.Images[8].src = "images/mapsheet.png";
-    this.Images[9].src = "images/mariosheet.png";
-    this.Images[10].src = "images/particlesheet.png";
-    this.Images[11].src = "images/racoonmariosheet.png";
-    this.Images[12].src = "images/smallmariosheet.png";
-    this.Images[13].src = "images/title.gif";
-    this.Images[14].src = "images/worldmap.png";
+    if(RTXof == false) {
+        this.Images[0].src = "images/RTXf/bgsheet.png";
+        this.Images[1].src = "images/RTXf/endscene.gif";
+        this.Images[2].src = "images/RTXf/enemysheet.png";
+        this.Images[3].src = "images/RTXf/firemariosheet.png";
+        this.Images[4].src = "images/RTXf/font.gif";
+        this.Images[5].src = "images/RTXf/gameovergost.gif";
+        this.Images[6].src = "images/RTXf/itemsheet.png";
+        this.Images[7].src = "images/RTXf/logo.gif";
+        this.Images[8].src = "images/RTXf/mapsheet.png";
+        this.Images[9].src = "images/RTXf/mariosheet.png";
+        this.Images[10].src = "images/RTXf/particlesheet.png";
+        this.Images[11].src = "images/RTXf/racoonmariosheet.png";
+        this.Images[12].src = "images/RTXf/smallmariosheet.png";
+        this.Images[13].src = "images/RTXf/title.gif";
+        this.Images[14].src = "images/RTXf/worldmap.png";
+    }else{
+        this.Images[0].src = "images/RTXo/bgsheet.png";
+        this.Images[1].src = "images/RTXo/endscene.gif";
+        this.Images[2].src = "images/RTXo/enemysheet.png";
+        this.Images[3].src = "images/RTXo/firemariosheet.png";
+        this.Images[4].src = "images/RTXo/font.gif";
+        this.Images[5].src = "images/RTXo/gameovergost.gif";
+        this.Images[6].src = "images/RTXo/itemsheet.png";
+        this.Images[7].src = "images/RTXo/logo.gif";
+        this.Images[8].src = "images/RTXo/mapsheet.png";
+        this.Images[9].src = "images/RTXo/mariosheet.png";
+        this.Images[10].src = "images/RTXo/particlesheet.png";
+        this.Images[11].src = "images/RTXo/racoonmariosheet.png";
+        this.Images[12].src = "images/RTXo/smallmariosheet.png";
+        this.Images[13].src = "images/RTXo/title.gif";
+        this.Images[14].src = "images/RTXo/worldmap.png";
+    }
     
     Enjine.Resources.AddImages(this.Images);
     

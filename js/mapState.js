@@ -110,7 +110,6 @@ Mario.MapState.prototype.Enter = function() {
     this.LevelType = 0;
 	
     Mario.PlayMapMusic();
-    document.getElementById("buttonsbox").style.visibility = "Hidden"
 };
 
 Mario.MapState.prototype.Exit = function() {
