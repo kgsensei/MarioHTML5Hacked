@@ -1,4 +1,4 @@
-var Current_Client_Running_Ver = "2.6 [DEV]"
+var Current_Client_Running_Ver = "2.6"
 var serverclic = true
 var allowafire = false
 
