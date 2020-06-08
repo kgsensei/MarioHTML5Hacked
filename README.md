@@ -23,7 +23,5 @@ Currently the client will talk to the server about version control. *This is a p
 
 We don't send any information about you or anything related to the server. To find what the server sends the client you can go to [http://deadclubgame.com/Mario/realmario.js].
 
-> In the future I might add an option to turn client server communication off.
-
 # Credit:
 I take no credit for this as the original project was NOT my own, I am simply adding my own features to it.
